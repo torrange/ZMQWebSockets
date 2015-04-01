@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TornadoApp</title>
+    <link rel="import" href="/static/elements.html">
+    <link rel="stylesheet" href="/static/css/styles.css" shim-shadowdom>
+    <script language="javascript" type="text/javascript" src="/static/js/websocket.js"></script>
+  </head>
+
+  <body unresolved fullbleed>
+    
+      <core-scaffold id="scaffold">
+        <nav>
+          <core-toolbar><span>Single Page Polymer</span></core-toolbar>
+
+          <core-menu id="core-menu" valueattr="hash" selected="0" >
+
+            <paper-item id="one" hash="one" noink="" tabindex="0" class="core-selected" active="" onclick="idPipe(this.id)">
+              <core-icon icon="label-outline"></core-icon>
+              <a>page1</a>
+            </paper-item>
+
+            <paper-item id="two" hash="two" noink="" tabindex="0" class="" onclick="idPipe(this.id)">
+              <core-icon icon="label-outline"></core-icon>
+              <a>page2</a>
+            </paper-item>
+
+            <paper-item id="three" hash="three" noink="" tabindex="0" class="" onclick="idPipe(this.id)">
+              <core-icon icon="label-outline"></core-icon>
+              <a>page3</a>
+            </paper-item>
+
+          </core-menu>
+        </nav>
+
+        <core-toolbar tool flex>
+          <!-- flex spaces this element and justifies the icons to the right-side -->
+          <div flex>Application</div>
+          <core-icon-button icon="refresh"></core-icon-button>
+          <core-icon-button icon="add"></core-icon-button>
+        </core-toolbar>
+
+
+
+
+        <div layout horizontal center-center fit>
+
+          <core-animated-pages id="pages-object" selected="one" valueattr="hash" transitions="slide-from-right" notap="" class="">
+
+                  <section hash="one" layout="" vertical="" center-center="" class="">
+                    <div>page1</div>
+                  </section>
+                
+                  <section hash="two" layout="" vertical="" center-center="" class="">
+                  <div><h2>page2</h2></div>
+                  </section>
+                
+                  <section hash="three" layout="" vertical="" center-center="" class="">
+                    <div id="jsondiv" ></div>
+                  </section>
+                
+              </core-animated-pages>
+
+        </div>
+
+
+      </core-scaffold> 
+
+  </body>
+
+<script type="text/javascript">
+
+function idPipe(attribute){
+    pagesobject = document.getElementById("pages-object");
+    pagesobject.setAttribute("selected", attribute);
+    scaffold.closeDrawer();
+    }
+
+</script>
+
+</html>
